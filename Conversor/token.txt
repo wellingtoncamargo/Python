@@ -1,0 +1,82 @@
+Feature: Exemplo JWT
+{
+"jti": "9e74d1f6-7095-4718-8f11-47dc9ec99c63", 
+"iat": 3242595771,
+"scope": [
+  "read",
+  "write"
+],
+"user_id": "5b4e3a9b9a73770009bedf11",
+"client_id": "5b391f6e02e9c10009af8592",
+"client_id_default": "5b39132402e9c10009af8572",
+"app_id": "5b391ec6f18f4f00082d59b1",
+"business_id": "123",
+"service_id": "5b391f6df18f4f00082d59b3",
+"customer_id": 6721,
+"jti": "7eb82d3f-1fdd-479f-863d-3187fd73865d",
+"iat": 1535640157,
+"authorities": [
+"ROLE_BUSINESSADMIN",
+"ROLE_CLI-AUTH-IDENTIFIED",
+"ROLE_BUSINESS",
+"ROLE_CLI-1STPARTY",
+"ROLE_USER",
+"ROLE_AUTH-BASIC",
+"ROLE_CLI-3RDPARTY",
+"ROLE_PERSON",
+"ROLE_BUSINESSOWNER",
+"ROLE_BUSINESSUSER",
+"ROLE_AUTH-IDENTIFIED"
+],
+"exp": 2137563067
+}
+http://localhost:8080/digital-commerce/acquirers/security-management/v1
+[Authorization: Bearer eyJhbGciOiJSUzUxMiJ9.eyJqdGkiOiI5ZTc0ZDFmNi03MDk1LTQ3MTgtOGYxMS00N2RjOWVjOTljNjMiLCJpYXQiOjMyNDI1OTU3NzEsInNjb3BlIjpbInJlYWQiLCJ3cml0ZSJdLCJ1c2VyX2lkIjoiNWI0ZTNhOWI5YTczNzcwMDA5YmVkZjExIiwiY2xpZW50X2lkIjoiNWIzOTFmNmUwMmU5YzEwMDA5YWY4NTkyIiwiY2xpZW50X2lkX2RlZmF1bHQiOiI1YjM5MTMyNDAyZTljMTAwMDlhZjg1NzIiLCJhcHBfaWQiOiI1YjM5MWVjNmYxOGY0ZjAwMDgyZDU5YjEiLCJidXNpbmVzc19pZCI6IjEyMyIsInNlcnZpY2VfaWQiOiI1YjM5MWY2ZGYxOGY0ZjAwMDgyZDU5YjMiLCJjdXN0b21lcl9pZCI6NjcyMSwianRpIjoiN2ViODJkM2YtMWZkZC00NzlmLTg2M2QtMzE4N2ZkNzM4NjVkIiwiaWF0IjoxNTM1NjQwMTU3LCJhdXRob3JpdGllcyI6WyJST0xFX0JVU0lORVNTQURNSU4iLCJST0xFX0NMSS1BVVRILUlERU5USUZJRUQiLCJST0xFX0JVU0lORVNTIiwiUk9MRV9DTEktMVNUUEFSVFkiLCJST0xFX1VTRVIiLCJST0xFX0FVVEgtQkFTSUMiLCJST0xFX0NMSS0zUkRQQVJUWSIsIlJPTEVfUEVSU09OIiwiUk9MRV9CVVNJTkVTU09XTkVSIiwiUk9MRV9CVVNJTkVTU1VTRVIiLCJST0xFX0FVVEgtSURFTlRJRklFRCJdLCJleHAiOjIxMzc1NjMwNjd9.Ur7zTQuU-QP3gkiGj-Gy1ZFnokPRG6Eu2xj1AR_guF28QO0WbJDTEsW2_LCyJzbVGPH3udVwBrcCObSKcJlBxMW2lr7RJ5SSPzBraZ2W9sFeIHCKQCYiuY9z9O6TMKkAbz518afqc1REDmuuIiVBzUoErHasAFbziOsI45eEiDSv4BEuw5hCMfcJGlPyr1fYevwyONqWqr4BFrFv725hLCD58QVvvX15yLuBW52fb3X74o21U27lCpXNhPOY-UroHZdJWn2g5KVWHnTHXulGWd0PsT9yuEgNZvwTyPjGhlk3ntFiFmy8SgvO6TAIaIa5VOBqegIcIGwZZwP-mOZP1g]
+[]
+
+  Scenario: Gerar um JWT e adicionar aos Headers                       # C:/Development/Tools/Gerador-Token-JWT/jwt-example.feature:3
+    Given I generate a milliseconds date "iat" with "99999999" minutes # RestAPISteps.generateMillisecondsWithMinutes(String,String)
+    Given I generate a milliseconds date "exp" with "9999999" minutes  # RestAPISteps.generateMillisecondsWithMinutes(String,String)
+    Given I use the json and generate a JWT Token                      # RestAPISteps.setJsonToken(String)
+      """
+      {
+      "jti": "9e74d1f6-7095-4718-8f11-47dc9ec99c63", 
+      "iat": ${iat},
+      "scope": [
+        "read",
+        "write"
+      ],
+      "user_id": "5b4e3a9b9a73770009bedf11",
+      "client_id": "5b391f6e02e9c10009af8592",
+      "client_id_default": "5b39132402e9c10009af8572",
+      "app_id": "5b391ec6f18f4f00082d59b1",
+      "business_id": "123",
+      "service_id": "5b391f6df18f4f00082d59b3",
+      "customer_id": 6721,
+      "jti": "7eb82d3f-1fdd-479f-863d-3187fd73865d",
+      "iat": 1535640157,
+      "authorities": [
+      "ROLE_BUSINESSADMIN",
+      "ROLE_CLI-AUTH-IDENTIFIED",
+      "ROLE_BUSINESS",
+      "ROLE_CLI-1STPARTY",
+      "ROLE_USER",
+      "ROLE_AUTH-BASIC",
+      "ROLE_CLI-3RDPARTY",
+      "ROLE_PERSON",
+      "ROLE_BUSINESSOWNER",
+      "ROLE_BUSINESSUSER",
+      "ROLE_AUTH-IDENTIFIED"
+      ],
+      "exp": ${exp}
+      }
+      """
+    Given I set the Bearer Authorization header                        # RestAPISteps.setBearerAuthHeader()
+    Then I print the path                                              # RestAPISteps.pathToReport()
+
+1 Scenarios (1 passed)
+5 Steps (5 passed)
+0m0,419s
+
+Generated report: 
+C:\cucumber-report\execution/cucumber-html-reports/overview-features.html

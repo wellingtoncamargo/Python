@@ -1,0 +1,126 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 283676,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.runBeforeWithOrder(Scenario)"
+            }
+          }
+        ],
+        "line": 3,
+        "name": "Gerar um JWT e adicionar aos Headers",
+        "description": "",
+        "id": "exemplo-jwt;gerar-um-jwt-e-adicionar-aos-headers",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 121533890,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "I generate a milliseconds date \"iat\" with \"99999999\" minutes",
+            "match": {
+              "arguments": [
+                {
+                  "val": "iat",
+                  "offset": 32
+                },
+                {
+                  "val": "99999999",
+                  "offset": 43
+                }
+              ],
+              "location": "RestAPISteps.generateMillisecondsWithMinutes(String,String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 163391,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "I generate a milliseconds date \"exp\" with \"9999999\" minutes",
+            "match": {
+              "arguments": [
+                {
+                  "val": "exp",
+                  "offset": 32
+                },
+                {
+                  "val": "9999999",
+                  "offset": 43
+                }
+              ],
+              "location": "RestAPISteps.generateMillisecondsWithMinutes(String,String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "output": [
+              "{\r\n\"jti\": \"9e74d1f6-7095-4718-8f11-47dc9ec99c63\", \r\n\"iat\": 3243007810,\r\n\"scope\": [\r\n  \"read\",\r\n  \"write\"\r\n],\r\n\"user_id\": \"5b4e3a9b9a73770009bedf11\",\r\n\"client_id\": \"5b391f6e02e9c10009af8592\",\r\n\"client_id_default\": \"5b39132402e9c10009af8572\",\r\n\"app_id\": \"5b391ec6f18f4f00082d59b1\",\r\n\"business_id\": \"123\",\r\n\"service_id\": \"5b391f6df18f4f00082d59b3\",\r\n\"customer_id\": 6721,\r\n\"jti\": \"7eb82d3f-1fdd-479f-863d-3187fd73865d\",\r\n\"iat\": 1535640157,\r\n\"authorities\": [\r\n\"ROLE_BUSINESSADMIN\",\r\n\"ROLE_CLI-AUTH-IDENTIFIED\",\r\n\"ROLE_BUSINESS\",\r\n\"ROLE_CLI-1STPARTY\",\r\n\"ROLE_USER\",\r\n\"ROLE_AUTH-BASIC\",\r\n\"ROLE_CLI-3RDPARTY\",\r\n\"ROLE_PERSON\",\r\n\"ROLE_BUSINESSOWNER\",\r\n\"ROLE_BUSINESSUSER\",\r\n\"ROLE_AUTH-IDENTIFIED\"\r\n],\r\n\"exp\": 2137975106\r\n}"
+            ],
+            "result": {
+              "duration": 602834631,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "I use the json and generate a JWT Token",
+            "match": {
+              "location": "RestAPISteps.setJsonToken(String)"
+            },
+            "keyword": "Given ",
+            "doc_string": {
+              "content_type": "",
+              "line": 7,
+              "value": "{\r\n\"jti\": \"9e74d1f6-7095-4718-8f11-47dc9ec99c63\", \r\n\"iat\": ${iat},\r\n\"scope\": [\r\n  \"read\",\r\n  \"write\"\r\n],\r\n\"user_id\": \"5b4e3a9b9a73770009bedf11\",\r\n\"client_id\": \"5b391f6e02e9c10009af8592\",\r\n\"client_id_default\": \"5b39132402e9c10009af8572\",\r\n\"app_id\": \"5b391ec6f18f4f00082d59b1\",\r\n\"business_id\": \"123\",\r\n\"service_id\": \"5b391f6df18f4f00082d59b3\",\r\n\"customer_id\": 6721,\r\n\"jti\": \"7eb82d3f-1fdd-479f-863d-3187fd73865d\",\r\n\"iat\": 1535640157,\r\n\"authorities\": [\r\n\"ROLE_BUSINESSADMIN\",\r\n\"ROLE_CLI-AUTH-IDENTIFIED\",\r\n\"ROLE_BUSINESS\",\r\n\"ROLE_CLI-1STPARTY\",\r\n\"ROLE_USER\",\r\n\"ROLE_AUTH-BASIC\",\r\n\"ROLE_CLI-3RDPARTY\",\r\n\"ROLE_PERSON\",\r\n\"ROLE_BUSINESSOWNER\",\r\n\"ROLE_BUSINESSUSER\",\r\n\"ROLE_AUTH-IDENTIFIED\"\r\n],\r\n\"exp\": ${exp}\r\n}"
+            }
+          },
+          {
+            "result": {
+              "duration": 1743113,
+              "status": "passed"
+            },
+            "line": 40,
+            "name": "I set the Bearer Authorization header",
+            "match": {
+              "location": "RestAPISteps.setBearerAuthHeader()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "output": [
+              "http://localhost:8080/digital-commerce/acquirers/security-management/v1",
+              "[Authorization: Bearer eyJhbGciOiJSUzUxMiJ9.eyJqdGkiOiI5ZTc0ZDFmNi03MDk1LTQ3MTgtOGYxMS00N2RjOWVjOTljNjMiLCJpYXQiOjMyNDMwMDc4MTAsInNjb3BlIjpbInJlYWQiLCJ3cml0ZSJdLCJ1c2VyX2lkIjoiNWI0ZTNhOWI5YTczNzcwMDA5YmVkZjExIiwiY2xpZW50X2lkIjoiNWIzOTFmNmUwMmU5YzEwMDA5YWY4NTkyIiwiY2xpZW50X2lkX2RlZmF1bHQiOiI1YjM5MTMyNDAyZTljMTAwMDlhZjg1NzIiLCJhcHBfaWQiOiI1YjM5MWVjNmYxOGY0ZjAwMDgyZDU5YjEiLCJidXNpbmVzc19pZCI6IjEyMyIsInNlcnZpY2VfaWQiOiI1YjM5MWY2ZGYxOGY0ZjAwMDgyZDU5YjMiLCJjdXN0b21lcl9pZCI6NjcyMSwianRpIjoiN2ViODJkM2YtMWZkZC00NzlmLTg2M2QtMzE4N2ZkNzM4NjVkIiwiaWF0IjoxNTM1NjQwMTU3LCJhdXRob3JpdGllcyI6WyJST0xFX0JVU0lORVNTQURNSU4iLCJST0xFX0NMSS1BVVRILUlERU5USUZJRUQiLCJST0xFX0JVU0lORVNTIiwiUk9MRV9DTEktMVNUUEFSVFkiLCJST0xFX1VTRVIiLCJST0xFX0FVVEgtQkFTSUMiLCJST0xFX0NMSS0zUkRQQVJUWSIsIlJPTEVfUEVSU09OIiwiUk9MRV9CVVNJTkVTU09XTkVSIiwiUk9MRV9CVVNJTkVTU1VTRVIiLCJST0xFX0FVVEgtSURFTlRJRklFRCJdLCJleHAiOjIxMzc5NzUxMDZ9.FJT5ZBdIH7qRxoCShpNYGqVRGTiGmdDY_39Fm8UftrfotWhmdBM5WzySS-hG0XxhutxaAkMW3xSjRQYDyzVHBKcOtoH08QPbM06dmAdVZ-a7oD0ZBLp1gIRB2QpdauMFp_qz1V66ygL1ciclzor5MOYj7nYP-nesfGTJASJ-pJtt1iIWAAlBBV7pobcCc-Iif5cajqFuegcuDBrIzkt5zdEMmvWyFCy0Nymi9ON-3DsQpR2aBaUz3dvI-q4JQWwHJf-mca4mQK6QkYezOGnZIPVeLeUnnAxpk-iGpjU1V0CDvY1VBGK1PfEzi1_p-mr5rLNGO9PwC3W5Vif_ROOJcA]",
+              "[]"
+            ],
+            "result": {
+              "duration": 4613543,
+              "status": "passed"
+            },
+            "line": 41,
+            "name": "I print the path",
+            "match": {
+              "location": "RestAPISteps.pathToReport()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      }
+    ],
+    "name": "Exemplo JWT",
+    "description": "",
+    "id": "exemplo-jwt",
+    "keyword": "Feature",
+    "uri": "C:/Users/cip0969/PycharmProjects/Conversor/jwt-example.feature"
+  }
+]
