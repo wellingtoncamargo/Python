@@ -1,0 +1,23 @@
+
+[
+	{
+		"id": 1,
+		"nome":"Gremio",
+		"posicao":01,
+		"descricao":"Equipe de Porto Alegre"
+	},
+
+	{
+		"id": 2,
+		"nome":"Real Madrid",
+		"posicao":02,
+		"descricao":"Equipe de Madri"
+	}
+
+	{
+		"id": 3,
+		"nome":"Barcelona",
+		"posicao":03,
+		"descricao":"Equipe de Barcelona"
+	}
+]
