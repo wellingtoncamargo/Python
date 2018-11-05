@@ -1,0 +1,6 @@
+#!C:\Users\cip0969\PycharmProjects\LNO\venv\Scripts\python.exe
+
+from cx_Freeze import main
+
+main()
+
