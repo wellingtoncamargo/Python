@@ -1,0 +1,32 @@
+import random
+from time import sleep
+from selenium import webdriver
+driver = webdriver.Chrome()
+
+driver.get("http://google.com")
+
+driver.find_element_by_name("q").send_keys("Calculadora")
+driver.find_element_by_name("q").submit()
+driver.find_element_by_class_name("LC20lb").click()
+
+var_in = random.randint(1, 9)
+print(var_in)
+driver.execute_script(f"javascript: populaval('{var_in}')")
+driver.execute_script(f"javascript: populaval('+')")
+var_in_2 = random.randint(1, 9)
+print(var_in_2)
+driver.execute_script(f"javascript: populaval('{var_in_2}')")
+driver.execute_script("javascript: calcula()")
+sleep(2)
+var_result = driver.find_element_by_id("TIExp").get_attribute("value")
+
+var_expect = var_in+var_in_2
+
+if int(var_result) == int(var_expect):
+    print("Sucesso!!!")
+else:
+    print("Falhou!!!")
+
+
+sleep(7)
+driver.quit()
