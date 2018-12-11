@@ -1,0 +1,15 @@
+from requests import get
+import random
+import json
+
+var_dia = random.randint(1, 30)
+var_get = get(f'https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date=2018-11-{var_dia}').text
+print(var_get)
+print('='*100)
+y = json.loads(var_get)
+print(y['date'])
+
+if var_dia == int(y['date'].split('-')[2]):
+    print("Sucesso!!!")
+else:
+    print("Falhou!!!")
